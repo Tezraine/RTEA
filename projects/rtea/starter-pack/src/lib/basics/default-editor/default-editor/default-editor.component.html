@@ -1,0 +1,33 @@
+<artea-basic-toolbar
+  [controls]="controls(view.editor)"
+  [template]="controlTemplate"
+></artea-basic-toolbar>
+<artea-editor
+  #view
+  [doc]="docNode"
+  [plugins]="allPlugins"
+  [schema]="schema"
+></artea-editor>
+
+<ng-template #controlTemplate let-control>
+  <button
+    *ngIf="asButton(control) as button"
+    mat-raised-button
+    [title]="button.title"
+    [disabled]="button.disabled | async"
+    (click)="button.onClick?.($event)"
+  >
+    {{ button.content }}
+  </button>
+
+  <select
+    *ngIf="asSelect(control) as select"
+    [title]="select.title"
+    [value]="select.selected | async"
+    [disabled]="select.disabled | async"
+  >
+    <option *ngFor="let option of select.options" [value]="option.value">
+      {{ option.text }}
+    </option>
+  </select>
+</ng-template>

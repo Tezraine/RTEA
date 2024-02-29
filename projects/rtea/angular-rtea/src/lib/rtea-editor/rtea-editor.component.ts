@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Schema, Node } from 'prosemirror-model';
 import { EditorState, Plugin } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
@@ -8,6 +15,7 @@ import { schema } from 'prosemirror-schema-basic';
   selector: 'artea-editor',
   templateUrl: './rtea-editor.component.html',
   styleUrls: ['./rtea-editor.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RteaEditorComponent implements OnInit, OnDestroy {
   public editor: EditorView = this.createEditor();
@@ -32,6 +40,7 @@ export class RteaEditorComponent implements OnInit, OnDestroy {
   plugins: Plugin[] = [];
 
   createEditor() {
+    console.log('createEditor');
     const baseSchema = this.schema ?? schema;
     this.editor?.destroy();
     this.editor = new EditorView(this.host.nativeElement, {

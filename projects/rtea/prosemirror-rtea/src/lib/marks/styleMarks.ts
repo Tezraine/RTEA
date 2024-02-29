@@ -26,22 +26,22 @@ export function createStyledMarkSpec<T>(
           return typeof dom === 'string'
             ? null
             : {
-                [style]: dom.style[style],
+                [style]: dom.style[style]
               };
-        },
-      },
+        }
+      }
     ],
     toDOM(mark) {
       const dom = document.createElement(tag);
       dom.style[style] = mark.attrs[style];
       return { dom, contentDOM: dom };
-    },
+    }
   };
 }
 
 export const basicStyleMarks = {
   fontFamily: createStyledMarkSpec('fontFamily', 'Arial'),
-  fontSize: createStyledMarkSpec('fontSize', '12px'),
+  fontSize: createStyledMarkSpec('fontSize', '12px')
 };
 
 const fontFamilies = [
@@ -53,28 +53,37 @@ const fontFamilies = [
   'Georgia',
   'Garamond',
   'Courier New',
-  'Brush Script MT',
+  'Brush Script MT'
 ];
 
 export type StyleSelectorDefinition = {
-  [k: string]: { [k: string]: Attrs | null };
+  [markname: string]: { text: string; value: Attrs | null | undefined }[];
 };
 
 export const basicStyleMarkSelectors: StyleSelectorDefinition = {
   fontFamily: fontFamilies.reduce(
     (acc, i) => {
-      acc[`Font Family: ${i}`] = { fontFamily: i };
+      acc.push({ text: `Font Family: ${i}`, value: { fontFamily: i } });
       return acc;
     },
-    { Default: { fontFamily: null } } as { [k: string]: Attrs | null }
+    [{ text: 'Default', value: { fontFamily: null } }] as {
+      text: string;
+      value: Attrs | null | undefined;
+    }[]
   ),
   fontSize: Array(42)
     .fill(0)
     .reduce(
       (acc, _, i) => {
-        acc[`Font Size: ${++i}`] = { fontSize: i + 'px' };
+        acc.push({
+          text: `Font Size: ${++i}`,
+          value: { fontSize: i + 'px' }
+        });
         return acc;
       },
-      { Default: null } as { [k: string]: Attrs | null }
-    ),
+      [{ text: 'Default', value: null }] as {
+        text: string;
+        value: Attrs | null | undefined;
+      }[]
+    )
 };

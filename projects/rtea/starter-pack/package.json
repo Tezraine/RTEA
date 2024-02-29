@@ -1,14 +1,19 @@
 {
-  "name": "@rtea/angular-rtea",
+  "name": "@rtea/starter-pack",
   "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^15.0.0 | ^16.0.0 | ^17.0.0",
     "@angular/core": "^15.0.0 | ^16.0.0 | ^17.0.0",
+    "@angular/material": "^15.0.0 | ^16.0.0 | ^17.0.0",
+    "@rtea/angular-rtea": "^0.1.0",
     "@rtea/prosemirror-rtea": "^0.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "optionalDependencies": {
+    "@angular/material": "^15.0.0"
   },
   "sideEffects": false
 }

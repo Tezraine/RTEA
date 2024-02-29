@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
-import { ProsemirrorRteaModule } from 'projects/rtea/angular-rtea/src/public-api';
+import { DefaultEditorModule } from 'projects/rtea/starter-pack/src/lib/basics/default-editor/default-editor.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, MatIconModule, ProsemirrorRteaModule],
+  imports: [DefaultEditorModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,29 +1,27 @@
-import { Component, Input, SecurityContext } from '@angular/core';
-import { Control, ControlGroup } from './button-types';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  SecurityContext,
+  TemplateRef,
+} from '@angular/core';
+import { Control } from './button-types';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'artea-toolbar',
-  templateUrl: './rtea-toolbar.component.html',
-  styleUrls: ['./rtea-toolbar.component.scss'],
+  selector: 'artea-basic-toolbar',
+  templateUrl: './basic-toolbar.component.html',
+  styleUrls: ['./basic-toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RteaToolbarComponent {
+export class BasicToolbarComponent {
   constructor(private sanitizer: DomSanitizer) {}
 
   @Input()
-  controls: (Control | ControlGroup)[] = [];
+  controls: Control[] = [];
 
-  sortedControls(): (Control | ControlGroup)[] {
-    return this.controls.sort((a, b) => {
-      if ((a.priority ?? 100) < (b.priority ?? 100)) {
-        return -1;
-      } else if ((a.priority ?? 100) > (b.priority ?? 100)) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-  }
+  @Input()
+  template?: TemplateRef<Control> | null;
 
   asButton(control: Control) {
     return control.type === 'button' ? control : null;

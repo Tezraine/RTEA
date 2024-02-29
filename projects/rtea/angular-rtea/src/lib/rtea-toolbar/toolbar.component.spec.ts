@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RteaToolbarComponent } from './rtea-toolbar.component';
+import { RteaToolbarComponent } from './toolbar.component';
 
 describe('RteaToolbarComponent', () => {
   let component: RteaToolbarComponent;
@@ -8,9 +8,8 @@ describe('RteaToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RteaToolbarComponent ]
-    })
-    .compileComponents();
+      declarations: [RteaToolbarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RteaToolbarComponent);
     component = fixture.componentInstance;

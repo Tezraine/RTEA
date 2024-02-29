@@ -31,7 +31,7 @@ TODO
 
 ## Further help
 
-The following libraries can be used to extend ProseMirror. They are not sponsored or endorsed by RTea or ProseMirror. They are simply here for reference to help you get started.
+The following libraries can be used to extend ProseMirror. They are not sponsored or endorsed by Rtea or ProseMirror. They are simply here for reference to help you get started.
 
 ProseMirror Util Libraries
 [Atlassian Prosemirror Utils](https://github.com/atlassian/prosemirror-utils/tree/master) (Apache 2.0 license)

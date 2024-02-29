@@ -8,6 +8,9 @@
       ],
       "@rtea/prosemirror-rtea": [
         "dist/rtea/prosemirror-rtea"
+      ],
+      "@rtea/starter-pack": [
+        "dist/rtea/starter-pack"
       ]
     },
     "baseUrl": "./",

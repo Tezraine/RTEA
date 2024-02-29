@@ -1,14 +1,1 @@
-<artea-toolbar
-  [buttons]="buttons(view.editor, iconRef)"
-  [update]="updates | async"
-></artea-toolbar>
-<artea-editor
-  #view
-  [doc]="doc"
-  [plugins]="plugins"
-  [schema]="schema"
-></artea-editor>
-
-<ng-template #iconRef let-icon>
-  <mat-icon [svgIcon]="icon">{{ icon }}</mat-icon>
-</ng-template>
+<artea-default-editor [plugins]="plugins" [domDoc]="doc"></artea-default-editor>

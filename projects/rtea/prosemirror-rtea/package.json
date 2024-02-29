@@ -1,13 +1,13 @@
 {
   "name": "@rtea/prosemirror-rtea",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
-    "prosemirror-model": "^1",
-    "prosemirror-state": "^1",
-    "prosemirror-view": "^1",
-    "prosemirror-transform": "^1",
-    "prosemirror-commands": "^1"
+    "prosemirror-model": "^1.0.0",
+    "prosemirror-state": "^1.0.0",
+    "prosemirror-view": "^1.0.0",
+    "prosemirror-transform": "^1.0.0",
+    "prosemirror-commands": "^1.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

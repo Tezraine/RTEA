@@ -22,20 +22,20 @@ export type Select<T = unknown> = {
 
 export type Template<T = never> = {
   type: 'template';
-  priority?: number;
+  show?: boolean;
   template: TemplateRef<T>;
   context: T;
 };
 
 export type HTML = {
   type: 'html';
-  priority?: number;
+  show?: boolean;
   element: HTMLElement;
 };
 
 export type ControlGroup = {
   type: 'group';
-  priority?: number;
+  show?: boolean;
   title: string;
   content: Control[];
 };
