@@ -1,13 +1,12 @@
-# ProsemirrorRtea
+# RTEA
+# A Prosemirror based text editor toolkit
 
 **_UNPUBLISHED!_**
 This repo is still in the exploritory phase of development, and everything is subject to change while I figure out how I want/need all this to work.
 
-Prosemirror-rtea is an Angular rich text editor application based off of the Prosemirror editor, and contains a variaty of angular component views with companion Prosemirror plugins to drive them.
+RTEA is a primarily Angular rich text editor application based off of the Prosemirror editor, and contains a variaty of angular component views with companion Prosemirror plugins to drive them.
 
-Prosemirror-rtea-extentions contains additional non-angular viewless prosemirror plugins and plugin bases.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+prosemirror-rtea contains additional non-angular viewless prosemirror plugins and plugin bases.
 
 ## Demo
 
