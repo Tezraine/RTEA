@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 /**
  * Wrapper component for a control element in the toolbar
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   selector: 'artea-toolbar-control',
   templateUrl: './toolbar-control.component.html',
   styleUrls: ['./toolbar-control.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarControlComponent {}

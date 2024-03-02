@@ -4,6 +4,7 @@ import {
   Input,
   SecurityContext,
   TemplateRef,
+  signal,
 } from '@angular/core';
 import { Control } from './button-types';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -18,10 +19,16 @@ export class BasicToolbarComponent {
   constructor(private sanitizer: DomSanitizer) {}
 
   @Input()
-  controls: Control[] = [];
+  set controls(controls: Control[]) {
+    this.controls$.set(controls);
+  }
+  controls$ = signal<Control[]>([]);
 
   @Input()
-  template?: TemplateRef<Control> | null;
+  set template(template: TemplateRef<Control> | null | undefined) {
+    this.template$.set(template);
+  }
+  template$ = signal<TemplateRef<Control> | null | undefined>(null);
 
   asButton(control: Control) {
     return control.type === 'button' ? control : null;

@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   Input,
-  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { Schema, Node } from 'prosemirror-model';
@@ -17,7 +16,7 @@ import { schema } from 'prosemirror-schema-basic';
   styleUrls: ['./rtea-editor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RteaEditorComponent implements OnInit, OnDestroy {
+export class RteaEditorComponent implements OnInit {
   public editor: EditorView = this.createEditor();
   constructor(private host: ElementRef) {}
 
@@ -40,27 +39,21 @@ export class RteaEditorComponent implements OnInit, OnDestroy {
   plugins: Plugin[] = [];
 
   createEditor() {
-    console.log('createEditor');
     const baseSchema = this.schema ?? schema;
-    this.editor?.destroy();
-    this.editor = new EditorView(this.host.nativeElement, {
-      state: EditorState.create({
-        doc: this.docNode,
-        plugins: this.plugins,
-        schema: baseSchema,
-      }),
-    });
+    this.editor = new EditorView(
+      { mount: this.host.nativeElement },
+      {
+        state: EditorState.create({
+          doc: this.docNode,
+          plugins: this.plugins,
+          schema: baseSchema,
+        }),
+      }
+    );
     return this.editor;
   }
 
   ngOnInit(): void {
-    if (!this.host?.nativeElement) {
-      console.error('editor dom missing');
-    }
     this.editor = this.createEditor();
-  }
-
-  ngOnDestroy(): void {
-    this.editor.destroy();
   }
 }

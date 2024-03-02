@@ -1,5 +1,5 @@
-import { Control, ControlGroup, markButtons } from '@rtea/angular-rtea';
-import { EditorView, basicTagMarks } from '@rtea/prosemirror-rtea';
+import { Control, ControlGroup, markButton } from '@rtea/angular-rtea';
+import { EditorView } from '@rtea/prosemirror-rtea';
 
 export function bindTextControls(
   view: EditorView | (() => EditorView)
@@ -9,17 +9,12 @@ export function bindTextControls(
     title: 'Text',
     show: true,
     content: [
-      ...markButtons(
-        {
-          Bold: basicTagMarks.strong,
-          Italic: basicTagMarks.em,
-          Strikethrough: basicTagMarks.strike,
-          Underline: basicTagMarks.underline,
-          Subtext: basicTagMarks.sub,
-          Supertext: basicTagMarks.super,
-        },
-        view
-      ),
+      markButton('Bold', 'strong', view),
+      markButton('Italic', 'em', view),
+      markButton('Strikethrough', 'strike', view),
+      markButton('Underline', 'u', view),
+      markButton('Subtext', 'sub', view),
+      markButton('Supertext', 'super', view),
     ],
   };
 }

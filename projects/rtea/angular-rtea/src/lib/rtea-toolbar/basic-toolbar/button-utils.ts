@@ -1,32 +1,28 @@
 import { setMark } from '@rtea/prosemirror-rtea';
 import { Button, Control, Select } from './button-types';
 import { toggleMark } from 'prosemirror-commands';
-import { MarkSpec, Attrs } from 'prosemirror-model';
+import { Attrs } from 'prosemirror-model';
 import { EditorView } from 'prosemirror-view';
 import { BehaviorSubject } from 'rxjs';
 
-export function markButtons(
-  marks: { [k: string]: MarkSpec },
+export function markButton(
+  label: string,
+  schemaKey: string,
   view: EditorView | (() => EditorView)
-): Control[] {
-  if (!view || !marks) {
-    return [];
-  }
-  return Object.keys(marks).map((key) => {
-    return {
-      type: 'button',
-      title: key,
-      content: key,
-      onClick: () => {
-        if (typeof view === 'function') {
-          view = view();
-        }
-        const command = toggleMark(view.state.schema.marks[key]);
-        command(view.state, view.dispatch, view);
-        view.focus();
-      },
-    } as Button;
-  });
+): Control {
+  return {
+    type: 'button',
+    title: label,
+    content: label,
+    onClick: () => {
+      if (typeof view === 'function') {
+        view = view();
+      }
+      const command = toggleMark(view.state.schema.marks[schemaKey]);
+      command(view.state, view.dispatch, view);
+      view.focus();
+    },
+  } as Button;
 }
 
 export function markSelectors(

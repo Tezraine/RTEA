@@ -1,6 +1,6 @@
 <artea-toolbar>
   <ng-container
-    *ngTemplateOutlet="groupTemplate; context: { $implicit: controls }"
+    *ngTemplateOutlet="groupTemplate; context: { $implicit: controls$() }"
   ></ng-container>
 </artea-toolbar>
 
@@ -21,7 +21,7 @@
       <ng-template #controlTemplate>
         <ng-container
           *ngTemplateOutlet="
-            template || defaultTemplate;
+            template$() || defaultTemplate;
             context: { $implicit: control }
           "
         ></ng-container>
