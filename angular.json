@@ -186,7 +186,7 @@
         }
       }
     },
-    "@rtea/starter-pack": {
+    "starter-pack": {
       "projectType": "library",
       "root": "projects/rtea/starter-pack",
       "sourceRoot": "projects/rtea/starter-pack/src",
